@@ -6,7 +6,7 @@ from .forms import FormsCliente, FormsEmpleados, FormsProducto
 # Create your views here.
 
 def Home(request):
-    return render(request, "Mi_Primer_App/Home.html")
+    return render(request, "Mi_Entrega/Home.html")
 
 def nuevoCliente(request):
     if request.method == "POST":
@@ -21,7 +21,8 @@ def nuevoCliente(request):
             newCliente.save()
             return redirect("Inicio")
     else:
-        return render(request, "Mi_Entrega/crear_Cliente.html", {"from": form})
+        form= FormsCliente
+        return render(request, "Mi_Entrega/crear_Cliente.html", {"form": form})
 
 def nuevoEmpleado(request):
     if request.method == "POST":
@@ -37,7 +38,8 @@ def nuevoEmpleado(request):
             newEmpleado.save()
             return redirect("Inicio")
     else:
-        return render(request, "Mi_Entrega/crear_Cliente.html", {"from": form})
+        form= FormsEmpleados
+        return render(request, "Mi_Entrega/crear_Cliente.html", {"form": form})
 
 def nuevoProducto(request):
     if request.method == "POST":
@@ -51,7 +53,12 @@ def nuevoProducto(request):
             newProducto.save()
             return redirect("Inicio")
     else:
-        return render(request, "Mi_Entrega/crear_Cliente.html", {"from": form})
+        form= FormsProducto
+        return render(request, "Mi_Entrega/crear_Cliente.html", {"form": form})
+    
+def producto(request):
+    producto= Producto.objects.all()
+    return render(request, "Mi_Entrega/buscar_Producto.html", {"producto": producto})
 
 def buscar_Producto(request):
     if request.method == "GET":
