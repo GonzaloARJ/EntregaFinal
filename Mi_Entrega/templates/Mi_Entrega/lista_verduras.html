@@ -1,0 +1,17 @@
+{%extends "padre.html" %}
+
+{%block content%}
+    <h2>Lista de Verduras</h2>
+    <ul>
+        {% for verdura in object_list %}
+            <li>
+                {{ verdura.nombre }} - {{ verdura.tipo }} - {{ verdura.marca }}
+                <a href="{% url 'detalle-verduras' verdura.pk %}">Detalles</a>
+                <a href="{% url 'editar-verduras' verdura.pk %}">Editar</a>
+                <a href="{% url 'borrar-verduras' verdura.pk %}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay verduras disponibles</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

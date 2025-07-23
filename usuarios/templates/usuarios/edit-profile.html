@@ -1,0 +1,31 @@
+{%extends "padre.html" %}
+
+ {%block content%}
+    <h2>Editar Perfil<h2>
+    
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Información del Usuario</legend>
+            {{ user_form.as_p }}
+        </fieldset>
+        <fieldset>
+            <legend>Avatar</legend>
+            {% if user.avatar.imagen and user.avatar%}
+                <img src="{{ user.avatar.imagen.url }}" alt="Avatar de {{ user.username }}" style="width: 100px; height: 100px;">
+            {% endif %}
+            {{ avatar_form.as_p }}
+        </fieldset>
+        <button type="submit" name= "update_profile">Guardar Cambios</button>
+    </form>
+
+    <hr>
+    <form method='POST'>
+        {% csrf_token %}
+        <fieldset>
+            <legend>Cambiar Contraseña</legend>
+            {{ password_form.as_p }}
+        </fieldset>
+        <button type="submit" name="change_password">Cambiar Contraseña</button>
+    </form>
+ {% endblock %}

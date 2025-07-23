@@ -27,3 +27,11 @@ class Empleado(models.Model):
 
 def __str__(self):
     return f"{self.nombre} {self.apellido} - Edad: {self.edad} - Correro: {self.email} - CUIL: {self.Cuil}"
+
+class Verduras(models.Model):
+    nombre = models.CharField(max_length= 50)
+    precio = models.IntegerField()
+    cantidad = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.nombre} - Precio: {self.precio} - Cantidad: {self.cantidad}"

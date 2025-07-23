@@ -1,0 +1,13 @@
+{%extends "padre.html" %}
+
+ {%block content%}
+    <h2>Perfil<h2>
+    <p>Avatar:</p>
+    {% if user.avatar %}
+        <img src="{{ user.avatar.imagen.url }}" alt="Avatar" style="width: 100px; height: 100px;">
+    {% endif %}
+    <p>Nombre: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Primer Nombre: {{ user.first_name }}</p>
+    <p>Ultimo Nombre: {{ user.last_name }}</p>
+ {% endblock %}

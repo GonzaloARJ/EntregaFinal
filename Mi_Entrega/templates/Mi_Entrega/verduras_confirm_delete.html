@@ -1,0 +1,11 @@
+{%extends "padre.html" %}
+
+{%block content%}
+    <h2>¿Esta seguro que desea eliminar la verdura?</h2>
+    <h3>{{ verdura.nombre }}</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirmar Eliminación</button>
+    </form>
+    <a href="{% url 'lista-verduras' %}">Cancelar</a>
+{% endblock %}

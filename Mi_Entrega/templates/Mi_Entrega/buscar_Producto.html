@@ -1,19 +1,22 @@
 {%extends "padre.html" %}
 
-{%block title%} Buscar-Producto {% endblock %}  
+{%block title%} Producto {% endblock %}  
 
  {%block content%}
     <h2>Buscar-Producto</h2>
-    <form method=='GET' action="{% url "Buscar_Producto" %}">
-        <input type="text" name="nombre" placeholder="Buscar Producto..." value="{{ nombre }}">
+    <form method="GET" action="{% url 'buscar-Producto' %}">
+        <input type="text" name="nombre" placeholder="Buscar producto..." values="{{ nombre }}">
         <button type="submit">Buscar</button>
     </form>
 
-    <ul>
-        {% for pro in producto %}
-            <li>{{producto.nombre}}</li>
-        {% empty %}
-            <li>No hay prodcutos disponibles</li>
-        {% endfor %}
-    </ul>
+    <h2>Productos</h2>
+    {% if producto %}
+        <ul>
+            {% for p in producto %}
+                <li>{{ p.nombre }} - {{ p.precio }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron productos.</p>
+    {% endif %}
  {% endblock %}

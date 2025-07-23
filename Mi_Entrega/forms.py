@@ -1,4 +1,5 @@
 from django import forms
+from .models import Verduras
 
 class FormsProducto(forms.Form):
     nombre= forms.CharField()
@@ -17,3 +18,8 @@ class FormsEmpleados(forms.Form):
     edad= forms.IntegerField()
     email= forms.CharField()
     Cuil= forms.IntegerField()
+
+class FormsVerduras(forms.ModelForm):
+    class Meta:
+        model = Verduras
+        fields = ['nombre', 'precio', 'cantidad']
