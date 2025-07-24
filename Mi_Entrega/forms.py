@@ -1,10 +1,9 @@
 from django import forms
-from .models import Verduras
-
-class FormsProducto(forms.Form):
-    nombre= forms.CharField()
-    Tipo= forms.CharField()
-    Marca= forms.CharField()
+from .models import Verduras, Producto
+class FormsProducto(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ['nombre', 'Tipo', 'Marca']
 
 class FormsCliente(forms.Form):
     nombre= forms.CharField()

@@ -49,15 +49,10 @@ def nuevoProducto(request):
     if request.method == "POST":
         form = FormsProducto(request.POST)
         if form.is_valid():
-            newProducto = Producto (
-                nombre= form.cleaned_data["nombre"],
-                Tipo= form.cleaned_data["Tipo"],
-                Marca= form.cleaned_data["Marca"]
-            )
-            newProducto.save()
+            form.save()
             return redirect("Inicio")
     else:
-        form= FormsProducto()
+        form = FormsProducto()
     return render(request, "Mi_Entrega/crear_Producto.html", {"form": form})
     
 def producto(request):

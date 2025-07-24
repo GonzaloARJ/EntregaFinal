@@ -5,9 +5,17 @@
     <p>Avatar:</p>
     {% if user.avatar %}
         <img src="{{ user.avatar.imagen.url }}" alt="Avatar" style="width: 100px; height: 100px;">
+    
+        <a href="{% url 'update-avatar' %}">
+            <button type="button">Editar Avatar</button>
+        </a>
     {% endif %}
     <p>Nombre: {{ user.username }}</p>
     <p>Email: {{ user.email }}</p>
     <p>Primer Nombre: {{ user.first_name }}</p>
     <p>Ultimo Nombre: {{ user.last_name }}</p>
+
+    <a href="{% url 'update-profile' %}">
+        <button type="button">Editar Perfil</button>
+    </a>
  {% endblock %}
