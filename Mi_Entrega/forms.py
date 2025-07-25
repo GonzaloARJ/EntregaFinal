@@ -21,4 +21,4 @@ class FormsEmpleados(forms.Form):
 class FormsVerduras(forms.ModelForm):
     class Meta:
         model = Verduras
-        fields = ['nombre', 'precio', 'cantidad']
+        fields = ['nombre', 'precio', 'cantidad', 'fecha_cosecha', 'fecha_vencimiento']

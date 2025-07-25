@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Producto(models.Model):
@@ -32,6 +33,8 @@ class Verduras(models.Model):
     nombre = models.CharField(max_length= 50)
     precio = models.IntegerField()
     cantidad = models.IntegerField()
+    fecha_cosecha = models.DateField(default=datetime.date.today)
+    fecha_vencimiento = models.DateField(default=datetime.date.today)
 
     def __str__(self):
         return f"{self.nombre} - Precio: {self.precio} - Cantidad: {self.cantidad}"
